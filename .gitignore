@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+instance/
+venv/
+dump.rdb
+
+
+celerybeat-schedule
+celerybeat.pid
+
+
+frontend/node_modules/
+frontend/dist/
