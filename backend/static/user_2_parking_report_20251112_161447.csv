@@ -1,0 +1,3 @@
+Reservation ID,Address,Parking Lot,Spot ID,Vehicle No,Start Time,End Time,Status,Cost
+1,gorakhpur,Gkp Zoo,11,852,2025-11-12 15:31,2025-11-12 15:31,Parked Out,15.0
+2,lucknow,Lulu Mall,1,8745,2025-11-12 15:31,2025-11-12 15:31,Parked Out,15.0

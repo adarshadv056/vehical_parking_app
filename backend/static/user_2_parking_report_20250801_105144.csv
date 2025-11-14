@@ -1,0 +1,13 @@
+Reservation ID,Address,Parking Lot,Spot ID,Vehicle No,Start Time,End Time,Status,Cost
+1,lucknow,Lulu Mall,1,9636,2025-07-31 08:50,2025-07-31 08:50,Parked Out,15.0
+2,lucknow,Lulu Mall,2,235,2025-07-31 08:56,2025-07-31 08:56,Parked Out,15.0
+3,lucknow,Lulu Mall,3,234,2025-07-31 08:59,2025-07-31 08:59,Parked Out,15.0
+4,lucknow,Lulu Mall,3,6845,2025-07-31 09:02,2025-07-31 09:05,Parked Out,15.0
+5,gorakhpur,Gkp Zoo,26,684,2025-07-31 09:05,2025-07-31 09:05,Parked Out,10.0
+6,gorakhpur,Gkp Zoo,26,684,2025-07-31 09:06,2025-07-31 13:11,Parked Out,50.0
+7,gorakhpur,Gkp Zoo,27,6846846,2025-07-31 13:10,2025-07-31 13:10,Parked Out,10.0
+8,gorakhpur,Gkp Zoo,26,asdf,2025-07-31 13:11,2025-07-31 13:12,Parked Out,10.0
+9,lucknow,Lulu Mall,3,sdf,2025-07-31 13:12,2025-07-31 13:12,Parked Out,15.0
+10,gorakhpur,Gkp Zoo,26,asdf,2025-07-31 13:15,2025-07-31 13:15,Parked Out,10.0
+11,gorakhpur,Gkp Zoo,27,asdf,2025-07-31 13:15,2025-07-31 13:15,Parked Out,10.0
+14,lucknow,Lulu Mall,3,dfgh,2025-08-01 08:57,N/A,Parked,30.0

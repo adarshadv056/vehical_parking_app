@@ -13,3 +13,9 @@ celerybeat.pid
 
 frontend/node_modules/
 frontend/dist/
+
+backend/__pycache__
+backend/applications/__pycache__/
+backend/models/__pycache__/
+backend/routes/__pycache__/
+backend/venv

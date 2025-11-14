@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Monthly Parking Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fafafa;
+            padding: 20px;
+        }
+        h2 {
+            color: #2c3e50;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            background-color: #fff;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <h2>{{ month_name }} Parking Activity Report</h2>
+    <p>Hello {{ username }},</p>
+
+    {% if reservations and reservations|length > 0 %}
+    <p>Here's a summary of your parking activity this month:</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Reservation ID</th>
+                <th>Address</th>
+                <th>Parking Lot</th>
+                <th>Spot ID</th>
+                <th>Vehicle No</th>
+                <th>Status</th>
+                <th>Start Time</th>
+                <th>End Time</th>
+                <th>Cost (₹)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for res in reservations %}
+            <tr>
+                <td>{{ res["Reservation ID"] }}</td>
+                <td>{{ res["Address"] }}</td>
+                <td>{{ res["Parking Lot"] }}</td>
+                <td>{{ res["Spot ID"] }}</td>
+                <td>{{ res["Vehicle No"] }}</td>
+                <td>{{ res["Status"] }}</td>
+                <td>{{ res["Start Time"] }}</td>
+                <td>{{ res["End Time"] }}</td>
+                <td>{{ res["Cost"] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>You have no parking reservations this month.</p>
+    {% endif %}
+
+    <p class="footer">Thank you for using the Vehicle Parking App 🚗</p>
+    <p class="footer">– Team Parking System</p>
+</body>
+</html>
