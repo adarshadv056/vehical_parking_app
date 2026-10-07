@@ -1,0 +1,231 @@
+/**
+ * Design Tokens — Vehicle Parking App
+ * Source of truth: DESIGN_SYSTEM.md
+ * All visual values defined here; components reference these tokens only.
+ */
+
+:root {
+  /* ============================================================
+     3. Color System
+     ============================================================ */
+
+  /* Brand */
+  --color-brand-primary: #2563EB;
+  --color-brand-primary-hover: #1D4ED8;
+  --color-brand-primary-light: #EAF2FF;
+
+  /* Neutrals */
+  --color-navy-deep: #0B1220;
+  --color-text-primary: #111827;
+  --color-text-secondary: #64748B;
+  --color-text-muted: #94A3B8;
+  --color-text-inverse: #FFFFFF;
+
+  /* Backgrounds */
+  --color-bg-page: #F7F9FC;
+  --color-bg-white: #FFFFFF;
+  --color-bg-card: #FFFFFF;
+  --color-bg-muted: #F8FAFC;
+
+  /* Borders */
+  --color-border-default: #E5E7EB;
+  --color-border-strong: #CBD5E1;
+  --color-border-focus: #2563EB;
+
+  /* Semantic — Availability/Status */
+  --color-status-available: #16A34A;
+  --color-status-available-bg: #DCFCE7;
+  --color-status-occupied: #EF4444;
+  --color-status-occupied-bg: #FEE2E2;
+  --color-status-warning: #F59E0B;
+  --color-status-warning-bg: #FEF3C7;
+  --color-status-info: #2563EB;
+  --color-status-info-bg: #EAF2FF;
+
+  /* ============================================================
+     4. Typography
+     ============================================================ */
+
+  /* Font families */
+  --font-family-primary: 'Manrope', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family-heading: 'Manrope', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Font sizes — Application density */
+  --font-size-xs: 12px;   /* metadata / labels */
+  --font-size-sm: 14px;   /* secondary text */
+  --font-size-base: 16px; /* body */
+  --font-size-lg: 18px;   /* card titles */
+  --font-size-xl: 24px;   /* component headings */
+  --font-size-2xl: 32px;  /* page headings */
+  --font-size-3xl: 40px;  /* large page headings */
+
+  /* Landing page — Editorial density */
+  --font-size-landing-hero: clamp(48px, 8vw, 80px); /* 56-80px */
+  --font-size-landing-section: clamp(32px, 5vw, 48px); /* 32-48px */
+
+  /* Font weights */
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+
+  /* Line heights */
+  --line-height-tight: 1.15;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.7;
+
+  /* ============================================================
+     5. Spacing (4px base unit)
+     ============================================================ */
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --space-30: 120px;
+
+  /* ============================================================
+     6. Border Radius
+     ============================================================ */
+
+  --radius-sm: 8px;
+  --radius-sm-max: 10px;
+  --radius-md: 12px;
+  --radius-md-max: 16px;
+  --radius-lg: 20px;
+  --radius-lg-max: 24px;
+  --radius-xl: 24px;
+  --radius-xl-max: 32px;
+  --radius-pill: 9999px;
+
+  /* ============================================================
+     7. Borders & Shadows
+     ============================================================ */
+
+  --border-width: 1px;
+  --border-style: solid;
+
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05);
+  --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 12px 24px rgba(15, 23, 42, 0.1);
+  --shadow-xl: 0 20px 40px rgba(15, 23, 42, 0.12);
+  --shadow-focus: 0 0 0 3px var(--color-brand-primary-light);
+
+  /* ============================================================
+     8. Buttons
+     ============================================================ */
+
+  --btn-height: 44px;
+  --btn-height-sm: 36px;
+  --btn-height-lg: 52px;
+  --btn-padding-x: 20px;
+  --btn-padding-x-sm: 16px;
+  --btn-padding-x-lg: 28px;
+  --btn-radius: 12px;
+  --btn-font-weight: 600;
+  --btn-transition: all 0.2s ease;
+
+  /* ============================================================
+     9. Transitions & Animations
+     ============================================================ */
+
+  --transition-fast: 150ms ease;
+  --transition-normal: 200ms ease;
+  --transition-slow: 300ms ease;
+
+  /* ============================================================
+     10. Z-Index Scale
+     ============================================================ */
+
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-fixed: 300;
+  --z-modal-backdrop: 400;
+  --z-modal: 500;
+  --z-popover: 600;
+  --z-tooltip: 700;
+  --z-toast: 800;
+
+  /* ============================================================
+     11. Breakpoints (for JS composables)
+     ============================================================ */
+
+  --bp-sm: 640px;
+  --bp-md: 768px;
+  --bp-lg: 1024px;
+  --bp-xl: 1280px;
+  --bp-2xl: 1440px;
+
+  /* ============================================================
+     12. Component-specific tokens
+     ============================================================ */
+
+  /* Parking Spot */
+  --spot-size: 44px;
+  --spot-size-sm: 36px;
+  --spot-gap: 8px;
+  --spot-radius: 8px;
+
+  /* Card */
+  --card-padding: var(--space-6);
+  --card-padding-sm: var(--space-4);
+  --card-gap: var(--space-4);
+
+  /* Form */
+  --input-height: 44px;
+  --input-height-sm: 36px;
+  --input-padding-x: 16px;
+  --input-radius: var(--radius-md);
+
+  /* Navbar */
+  --navbar-height: 64px;
+  --sidebar-width: 260px;
+  --sidebar-width-collapsed: 72px;
+}
+
+/* ============================================================
+   Dark mode
+   ============================================================ */
+
+[data-theme="dark"] {
+  --color-bg-page: #070B13;
+  --color-bg-white: #0F172A;
+  --color-bg-card: #131D31;
+  --color-bg-muted: #1E293B;
+  --color-text-primary: #F8FAFC;
+  --color-text-secondary: #94A3B8;
+  --color-text-muted: #64748B;
+  --color-text-inverse: #070B13;
+  --color-border-default: #1E293B;
+  --color-border-strong: #334155;
+  --color-brand-primary-light: rgba(37, 99, 235, 0.2);
+  --color-status-available-bg: rgba(22, 163, 74, 0.2);
+  --color-status-occupied-bg: rgba(239, 68, 68, 0.2);
+  --color-status-warning-bg: rgba(245, 158, 11, 0.2);
+  --color-status-info-bg: rgba(37, 99, 235, 0.2);
+}
+
+/* ============================================================
+   Reduced motion
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

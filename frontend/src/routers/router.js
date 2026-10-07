@@ -15,6 +15,8 @@ import UserDashboard from '../components/UserDashboard.vue';
 import BookSpot from '../components/BookSpot.vue';
 import AdminSummary from '../components/AdminSummary.vue';
 import UserSummary from '../components/UserSummary.vue';
+import UserHistory from '../components/UserHistory.vue';
+import { auth } from '../api/client';
 
 const routes = [{
     path: '/',
@@ -120,6 +122,15 @@ const routes = [{
       requiresAuth: true,
       role: 'user'
     }
+  },
+  {
+    path: '/user/history',
+    name: 'UserHistory',
+    component: UserHistory,
+    meta: {
+      requiresAuth: true,
+      role: 'user'
+    }
   }
 ];
 
@@ -135,8 +146,8 @@ router.beforeEach((to, from, next) => {
     return;
   }
   if (token && to.meta.role) {
-    const payload = JSON.parse(atob(token.split('.')[1]));
-    const userRole = payload.role;
+    const payload = auth.getPayload();
+    const userRole = payload?.role;
     if (to.meta.role !== userRole) {
       next('/login');
       return;

@@ -45,7 +45,7 @@ def register():
     )
     db.session.add(new_user)
     db.session.commit()
-    cache.delete("all_users")
+    # cache.delete("all_users")
     return jsonify({"message": "User registered successfully"}), 201
 
 
@@ -92,7 +92,7 @@ def admin_dashboard():
 @app.route("/admin/add_lot", methods=["GET", "POST"])
 @jwt_required()
 def add_parking_lot():
-    cache.delete('get_parking_lots')
+    # cache.delete('get_parking_lots')
     user_info = get_jwt()
     if user_info["role"] != "admin":
         return jsonify({"message": "Access forbidden: Admins only!"}), 403
@@ -126,7 +126,7 @@ def add_parking_lot():
     return jsonify({"message": "Parking lot added successfully"}), 201
 
 @app.route("/admin/get_lots", methods=["GET"])
-@cache.cached(timeout=60, key_prefix='get_parking_lots')
+# @cache.cached(timeout=60, key_prefix='get_parking_lots')
 @jwt_required()
 def get_parking_lots():
     print("Fetching data from DB...")
@@ -162,7 +162,7 @@ def get_parking_lot(lot_id):
 @app.route("/admin/delete_lot/<int:lot_id>", methods=["DELETE"])
 @jwt_required()
 def delete_parking_lot(lot_id):
-    cache.delete('get_parking_lots')
+    # cache.delete('get_parking_lots')
     lot = Parking_lot.query.get(lot_id)
     spots = Parking_spot.query.filter_by(lot_id=lot_id).all()
     if not lot:
@@ -180,7 +180,7 @@ def delete_parking_lot(lot_id):
 @app.route("/admin/edit_lot/<int:lot_id>", methods=["PUT"])
 @jwt_required()
 def edit_parking_lot(lot_id):
-    cache.delete('get_parking_lots')
+    # cache.delete('get_parking_lots')
     user_info = get_jwt()
     if user_info["role"] != "admin":
         return jsonify({"message": "Access forbidden: Admins only!"}), 403
@@ -236,9 +236,10 @@ def get_parking_spot(spot_id):
     return jsonify({"spot": spot.to_dict()}), 200
 
 @app.route("/admin/delete_spot/<int:spot_id>", methods=["DELETE"])
+# @cache.cached(timeout=120, key_prefix='get_parking_lots')
 @jwt_required()
 def delete_parking_spot(spot_id):
-    cache.delete('get_parking_lots')
+    # cache.delete('get_parking_lots')
     user_info = get_jwt()
     if user_info["role"] != "admin":
         return jsonify({"message": "Access forbidden: Admins only!"}), 403
@@ -275,7 +276,7 @@ def get_reservations(spot_id):
 
 
 @app.route("/admin/users", methods=["GET"])
-@cache.cached(timeout=120, key_prefix='all_users')
+# @cache.cached(timeout=120, key_prefix='all_users')
 @jwt_required()
 def get_users():
     print("Fetching users from DB...")
@@ -289,7 +290,7 @@ def get_users():
     return jsonify({"users": users_data, "total_users": len(users_data)}), 200
 
 @app.route('/admin/revenue_chart')
-@cache.cached(timeout=120, key_prefix='revenue_chart')
+# @cache.cached(timeout=120, key_prefix='revenue_chart')
 def revenue_chart():
     reservations = Reservation.query.all()
     
@@ -392,8 +393,8 @@ def get_first_parking_spot(lot_id):
 @app.route("/user/book_spot/<int:spot_id>", methods=["POST"])
 @jwt_required()
 def book_parking_spot(spot_id):
-    cache.delete('revenue_chart')
-    cache.delete('get_parking_lots')
+    # cache.delete('revenue_chart')
+    # cache.delete('get_parking_lots')
     user_info = get_jwt()
     if user_info["role"] != "user":
         return jsonify({"message": "Access forbidden: Users only!"}), 403
@@ -461,8 +462,8 @@ def get_parking_history():
 @app.route("/user/park_out/<int:history_id>", methods=["POST"])
 @jwt_required()
 def park_out(history_id):
-    cache.delete('revenue_chart')
-    cache.delete('get_parking_lots')
+    # cache.delete('revenue_chart')
+    # cache.delete('get_parking_lots')
     user_info = get_jwt()
     if user_info["role"] != "user":
         return jsonify({"message": "Access forbidden: Users only!"}), 403
