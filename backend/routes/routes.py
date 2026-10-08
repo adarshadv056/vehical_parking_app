@@ -15,7 +15,7 @@ from sqlalchemy.orm import joinedload
 from datetime import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask import current_app as app, send_from_directory
-from app import cache
+# from app import cache
 from models.models import *
 
 
