@@ -23,6 +23,10 @@ def parking_app():
     CORS(app)
     # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///parking.db'
     app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL")
+    app.config['SQLALCHEMY_ENGINE_OPTIONS'] = {
+        "pool_pre_ping": True,
+        "pool_recycle": 300,
+    }
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     app.config['JWT_SECRET_KEY'] = 'your_jwt_secret_key'
     app.config['JWT_ACCESS_TOKEN_EXPIRES'] = timedelta(hours=24)
