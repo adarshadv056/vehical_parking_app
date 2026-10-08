@@ -9,6 +9,10 @@ from flask_caching import Cache
 from applications.celery_init import celery_init_app
 from celery.schedules import crontab
 
+
+from dotenv import load_dotenv
+load_dotenv()
+
 app = None
 jwt = JWTManager()
 cache = Cache()
@@ -17,7 +21,8 @@ def parking_app():
     global app
     app = Flask(__name__, static_folder='application/static', static_url_path='/static')
     CORS(app)
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///parking.db'
+    # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///parking.db'
+    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL")
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     app.config['JWT_SECRET_KEY'] = 'your_jwt_secret_key'
     app.config['JWT_ACCESS_TOKEN_EXPIRES'] = timedelta(hours=24)
@@ -54,7 +59,7 @@ create_admin_with_db()
 celery = celery_init_app(app)
 celery.autodiscover_tasks()
 
-from routes.routes import *
+from routes import routes
 
 @celery.on_after_finalize.connect
 def setup_periodic_tasks(sender, **kwargs):
