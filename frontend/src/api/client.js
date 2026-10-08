@@ -6,21 +6,16 @@
  * - Returns { data, error } tuples so callers don't need try/catch everywhere
  */
 
-// Vue CLI (webpack) injects process.env.VUE_APP_API_BASE at build time.
-// Vite uses import.meta.env.VUE_APP_API_BASE.
-// Fallback to hardcoded localhost for dev.
-const BASE = (() => {
-  if (typeof process !== 'undefined' && process.env?.VUE_APP_API_BASE) {
-    return process.env.VUE_APP_API_BASE;
-  }
-  if (typeof import.meta !== 'undefined' && import.meta.env?.VUE_APP_API_BASE) {
-    return import.meta.env.VUE_APP_API_BASE;
-  }
-  if (typeof window !== 'undefined' && window.__VUE_APP_API_BASE__) {
-    return window.__VUE_APP_API_BASE__;
-  }
-    throw new Error('VUE_APP_API_BASE is not configured');
-})();
+// Vue CLI (webpack) injects process.env.VUE_APP_API_BASE at build time from .env files.
+const BASE = (
+  (typeof window !== 'undefined' && window.__VUE_APP_API_BASE__) ||
+  process.env.VUE_APP_API_BASE ||
+  ''
+).replace(/\/+$/, '');
+
+if (!BASE && typeof window !== 'undefined') {
+  console.warn('[ParkSync API] Warning: VUE_APP_API_BASE is not defined in environment variables.');
+}
 
 function authHeaders(extra = {}) {
   const token = localStorage.getItem('token');
