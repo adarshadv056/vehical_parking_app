@@ -19,7 +19,7 @@ const BASE = (() => {
   if (typeof window !== 'undefined' && window.__VUE_APP_API_BASE__) {
     return window.__VUE_APP_API_BASE__;
   }
-  return 'http://localhost:5000';
+    throw new Error('VUE_APP_API_BASE is not configured');
 })();
 
 function authHeaders(extra = {}) {
