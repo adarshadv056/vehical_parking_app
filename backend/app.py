@@ -59,7 +59,7 @@ create_admin_with_db()
 celery = celery_init_app(app)
 celery.autodiscover_tasks()
 
-from routes import routes
+from routes.routes import routes
 
 @celery.on_after_finalize.connect
 def setup_periodic_tasks(sender, **kwargs):
